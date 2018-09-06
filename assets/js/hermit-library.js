@@ -21,8 +21,14 @@ jQuery(document).ready(function ($) {
         tableSrc = $("#hermit-table-template").html(),
         tableTmpl = Handlebars.compile(tableSrc),
 
+        lrcSrc = $("#hermit-lrc-template").html(),
+        lrcTmpl = Handlebars.compile(lrcSrc),
+
+        catmovSrc = $("#hermit-move-cat-template").html(),
+        catmovTmpl = Handlebars.compile(catmovSrc),
+
         manageSrc = $("#hermit-manage-cat-template").html(),
-        manageTmpl = Handlebars.compile(manageSrc)
+        manageTmpl = Handlebars.compile(manageSrc),
 
         $bodyLoader = $.mxloader('#wpwrap', true);
 
@@ -66,7 +72,6 @@ jQuery(document).ready(function ($) {
         return html;
     });
 
-
     Handlebars.registerHelper('catCover', function (cover_url, name) {
         var html;
 
@@ -81,6 +86,9 @@ jQuery(document).ready(function ($) {
 
         html = '<a href="javascript:" class="hermit-show-lrc" data-index="' + index +'">显示歌词</a>';
 
+        return html;
+    });
+
     Handlebars.registerHelper('catAction', function (id) {
         var html = '';
 
@@ -89,7 +97,6 @@ jQuery(document).ready(function ($) {
         } else {
             html = '<p>默认分类禁止编辑/删除</p>'
         }
-
 
         return html;
     });
